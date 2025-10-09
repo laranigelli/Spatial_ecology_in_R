@@ -1,0 +1,46 @@
+# code related for population in ecology 
+# install the package 
+install.packages("spatstat")
+
+# function to use the package already installed 
+library(spatstat)
+
+# inside the package there are some data 
+bei 
+plot(bei)
+
+#points may represent distribution of individuals of a population
+plot(bei, pch=2)
+
+# all colors in r are described here[https://r-charts.com/colors/]
+plot(bei, pch=2, col="aquamarine")
+
+plot(bei, pch=2, cex= .5)
+
+#for the same area we can have additional points 
+bei.extra 
+plot(bei.extra)
+
+#how to plot only one variable 
+plot(bei.extra$elev)
+
+#another manner explicing only the variable i am interested in. double [] because i have 2 dimensions, for raster dataset  
+plot(bei.extra[[1]])
+plot(bei.extra[[2]])
+
+#assign el to bei.extra[[1]]
+el <- bei.extra[[1]]
+plot(el)
+
+#to produce the density map 
+
+#passing from points which are vectors of points to map (raster)
+beidense <- density(bei)
+plot(beidense)
+
+plot(el)
+#the higher the elevtion, the lower the density 
+
+plot(beidense)
+points(bei, cex=.5)
+
