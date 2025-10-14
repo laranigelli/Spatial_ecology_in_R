@@ -44,3 +44,29 @@ plot(el)
 plot(beidense)
 points(bei, cex=.5)
 
+# plotting together the density map and the elevation
+
+# el object that was the elevation in bei extra dataset. it needs to be linked with bei extra. one object is beidense and the other is el. how to plot the beidense beside el?
+# r has a function called par, a parameter related to plots to create a multiframe (mf) meaning that we put inside the same graph several plots) 
+# in this case in one single row and 2 colums 
+
+par(mfrow=c(1,2))
+plot(beidense)
+plot(el)
+
+# plot beidense on top on el map
+
+par(mfrow=c(2,1))
+plot(beidense)
+plot(el)
+
+# dev.off function: close a plotting device. 
+dev.off()
+
+# how to change colors
+# colorRampPalette: extend a color palette to a color ramp. it indicates the type of colors we are using. 
+# we can concatenate the elements with c
+
+cl <- colorRampPalette(c("green","red","blue")) # never use rainbow color palette for colorblind people that can't distinguish red from green. 
+plot(beidense,col=cl)
+
