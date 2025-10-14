@@ -70,3 +70,18 @@ dev.off()
 cl <- colorRampPalette(c("green","red","blue")) # never use rainbow color palette for colorblind people that can't distinguish red from green. 
 plot(beidense,col=cl)
 
+cl <- colorRampPalette(c("green","red","blue"))(100)
+plot(beidense,col=cl)
+
+# change colors 
+
+cl2 <- colorRampPalette(c("honeydew3","hotpink3","indianred"))
+plot(beidense, col=cl2)
+
+# plot the beidense with 2 different color ramps, one on top of the other. 
+
+par(mfrow=c(2,1))
+cl <- colorRampPalette(c("green","red","blue"))
+plot(beidense,col=cl)
+cl2 <- colorRampPalette(c("honeydew3","hotpink3","indianred"))
+plot(beidense, col=cl2)
