@@ -1,0 +1,22 @@
+# Code to estimate the temporal overlap between species
+# how much time animals are spending togheter? 
+# the package is overlap that estimates the amount of overlapping for animal activity
+install.packages("overlap")
+# the tool calculates time
+library(overlap)
+data(kerinci)
+head(kerinci)
+# radiance is the view of time instead as linearly as a circular variable 
+circtime<-kerinci$Time*2*pi
+circtime
+kerinci$circtime<-kerinci$Time*2*pi
+head(kerinci) # to have circtime (in radiants) in the head of the table
+
+#to select data related to tiger 
+tiger<-kerinci[kerinci$Sps=="tiger",] #, is used to close the selection
+
+#density plot measures the frequency of when we saw the tiger and it will make a continous function that interpolated the picks of the histogramme
+densityPlot(tiger$circtime)
+
+tigertime <- tiger$circtime
+densityPlot(tigertime)
