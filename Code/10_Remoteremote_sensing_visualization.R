@@ -36,3 +36,47 @@ par(mfrow=c(1,2))
 plot(b2, col=cl)
 plot(b3, col=cl)
 # very similar images since the reflectance in this visible part is similar 
+# if a function is not working on CRAN, it can be checked in github
+im.multiframe <- function(x,y){
+  par(mfrow=c(x,y))
+  }
+# this function from git hub is functioning
+im.multiframe(1,2)
+plot(b2, col=cl)
+plot(b3, col=cl)
+# it worked :D
+dev.off()
+plot(b2,b3)
+# they are ultracorrelated with each other. reflectance increases for b2 and b3 
+#exercise: import band number 4, corresponding to red wavelenght
+b4<-im.import("sentinel.dolomites.b4.tif")
+# objects reflecing are represented in yellow, in dark blue those who absorb.
+plot(b4)
+plot(b4, col=cl)
+
+# infrared is wider than UV
+# import band 8 called NIR = near infrared. central wavelenght 842 nm
+b8<-im.import("sentinel.dolomites.b8.tif")
+plot(b8) 
+# we have a huge amount of degradation
+im.multiframe(1,2)
+plot(b4, col=cl)
+plot(b8, col=cl)
+
+# build your own function for plotting. (x,y) is the argument
+duccio<-function(x,y){
+  par(mfrow=c(x,y))
+  }
+# exercise: with the function duccio build a multiframe of 2 rows and colums and plot all the imported data
+duccio(2,2)
+plot(b2)
+plot(b3)
+plot(b4)
+plot(b8)
+
+# exercise: create a multiframe with 1 row and 2 columns,plot one against the other 
+# b2 and b3
+# b2 and b8
+duccio(1,2)
+plot(b2,b3) # the blue band and the green band. ultracorrelated, they increase and decrease togheter 
+plot(b2,b8) # the blue band and the NIR band. not a linear correlation: high reflectance in NIR and low reflectance in blue, it is vegetation since blue is absorbed by vegetation for photosyntesis. NIR adds additional information since it is not directly correlated. 
