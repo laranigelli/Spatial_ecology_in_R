@@ -80,3 +80,26 @@ plot(b8)
 duccio(1,2)
 plot(b2,b3) # the blue band and the green band. ultracorrelated, they increase and decrease togheter 
 plot(b2,b8) # the blue band and the NIR band. not a linear correlation: high reflectance in NIR and low reflectance in blue, it is vegetation since blue is absorbed by vegetation for photosyntesis. NIR adds additional information since it is not directly correlated. 
+
+# creatin colored images.
+# function in imageRy package im.plotRGB. we take an image composed by several bands stating what band we want to put on top of each component of RGB scheme.
+# first we create the image
+# every single band is treated as an element of an array. 
+sent <- c(b2,b3,b4,b8)
+plot(sent) 
+# we create the stack were we have all the bands. 
+
+#layer 1 = original (from sentinel 2) b2 = blue 
+#layer 2 = original (from sentinel 2) b3 = green
+#layer 3 = original (from sentinel 2) b4 = red 
+#layer 4 = original (from sentinel 2) b8 = NIR
+
+# im.plotRGB(x,r,g,b, title="")
+# natural color image (how the image is seen from space) 
+im.plotRGB(sent, r=3, g=2, b=1, title="natural color")
+
+# false color image 
+im.plotRGB(sent, r=4, g=3, b=2, title="false color") # NIR is on top of green component 
+im.plotRGB(sent, r=3, g=4, b=2, title="false color") # red is on top of green component (credo)
+im.plotRGB(sent, r=3, g=2, b=4, title="false color") # NIR of top of blue component 
+#duccio(2,2) non funziona with the CRAN version
