@@ -99,7 +99,7 @@ plot(sent)
 im.plotRGB(sent, r=3, g=2, b=1, title="natural color")
 
 # false color image 
-im.plotRGB(sent, r=4, g=3, b=2, title="false color") # NIR is on top of green component 
-im.plotRGB(sent, r=3, g=4, b=2, title="false color") # red is on top of green component (credo)
+im.plotRGB(sent, r=4, g=3, b=2, title="false color") # NIR is on top of red component 
+im.plotRGB(sent, r=3, g=4, b=2, title="false color") # NIR is on top of green component (credo)
 im.plotRGB(sent, r=3, g=2, b=4, title="false color") # NIR of top of blue component 
 #duccio(2,2) non funziona with the CRAN version
