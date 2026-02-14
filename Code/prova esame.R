@@ -62,10 +62,10 @@ fox_low_time <- fox_low$circtime
 
 # density plot for foxes in high impact sites 
 densityPlot(fox_high_time, main="Red Fox activity - High Human Presence")
-
+densityPlot(roedeer_high_time, main="Roe Deer activity - High Human Presence")
 # density plot for foxes in low impact sites 
 densityPlot(fox_low_time, main="Red Fox Activity - Low Human Presence")
-
+densityPlot(roedeer_low_time, main="Roe Deer Activity - Low Human Presence")
 # overlap plot to compare them 
 overlapPlot(fox_high_time, fox_low_time, 
             main="Comparison Red Fox Activity: High vs Low Impact",
@@ -73,6 +73,13 @@ overlapPlot(fox_high_time, fox_low_time,
             linecol=c("red", "blue"), # red=High, Blue=Low
             olapcol="lightgrey", # to underline di overlap area
             xscale=24) # to convert radiants into hours 
+
+overlapPlot(roedeer_high_time, roedeer_low_time, 
+            main="Comparison Roe Deer Activity: High vs Low Impact",
+            xlab="Time of the day (Hours)",
+            linecol=c("red", "blue"), # red=High, Blue=Low
+            olapcol="lightgrey", # to underline di overlap area
+            xscale=24)
 # we add a legend 
 legend("topright", c("High Human Presence", "Low Human Presence"), 
        lty=1, col=c("red", "blue"), bty='n')
@@ -85,7 +92,7 @@ legend("topright", c("High Human Presence", "Low Human Presence"),
 
 # numeric estimate of the overlap
 overlap_index <- overlapEst(fox_high_time, fox_low_time, type="Dhat4")
-print(overlap_index)
+overlap_index
 # this values goes from 0 (no overlap) to 1 (total overlap, same activity profiles)
 # 0.85 gives a very high overlap. despite of human presence, foxes in high impact sites keeps having similar activities to those in low impact sites. no drastic shift in times. 
 # probably because foxes are already avoiding humans without changing their activities since it is mainly crepuscolar/nocturnal or they are used to humans.
