@@ -30,7 +30,7 @@ plot(b3, col=cl)
 
 #multiframe to plot one next to each other
 #instead of parmfrow we can use a function in imageRy called im.multiframe that is an equivalent of parmfrow
-im.multifrane(1,2)
+im.multiframe(1,2)
 # not working, we use par
 par(mfrow=c(1,2))
 plot(b2, col=cl)
