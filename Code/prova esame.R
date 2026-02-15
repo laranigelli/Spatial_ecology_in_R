@@ -120,7 +120,7 @@ plot.new()
 legend("center",
        inset = c(0,0),
        legend=c("High Human Presence", "Low Human Presence"), 
-       lwd= 2, col=c("red", "blue"), bty='n', cex=1.2, horiz = TRUE, xpd = TRUE)
+       lwd= 2, col=c("red", "blue"), bty='n', cex=1.2, xpd = TRUE)
 
 
 # center is the position of the legend to make it symmetrical
