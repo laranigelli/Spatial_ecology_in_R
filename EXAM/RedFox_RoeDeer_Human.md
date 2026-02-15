@@ -11,8 +11,8 @@ February 2026
 <div align="justify">
 
 # Introduction
-The rapid expansion of urban and peri-urban areas has forced wildlife to adapt to fragmented landscapes and high levels of anthropogenic pressure. Temporal activity is a fundamental dimension of an animal's niche, governing foraging, mating, and survival. Understanding when animals are active helps us identifying how they share space and resources without direct conflict. Significant shifts in natural rhythms can lead to increased stress, reduced reproductive success, or altered predator-prey dynamics. 
-Human presence often acts as a disturbance, pushing wildlife towards noctural behaviors to avoid contact. Not all species respond equally; some are adapters (thriving in human presence) while others are avoiders (highly sensitive to disturbance). 
+The rapid expansion of urban and peri-urban areas has forced wildlife to adapt to fragmented landscapes and high levels of anthropogenic pressure. Temporal activity is a fundamental dimension of an animal's niche, governing foraging, mating, and survival. Understanding when animals are active helps us identify how they share space and resources without direct conflict. Significant shifts in natural rhythms can lead to increased stress, reduced reproductive success, or altered predator-prey dynamics. 
+Human presence often acts as a disturbance, pushing wildlife towards nocturnal behaviors to avoid contact. Not all species respond equally to human disturbance; some are urban adapters, capable of persisting in modified landscapes, whereas others respond by temporally avoiding periods of high human activity.
 
 ## Study objective
 - to quantify overlap measuring the degree of temporal synchronization between wildlife and human activity.
@@ -47,9 +47,9 @@ library(lubridate)
 
 <div align="justify">
   
-The overlap package provides functions to fit kernel density functions to data on temporal activity patterns of animals and estimate coefficients of overlapping of densities for two species. This package is useful for circular statistics, when treating data as circular. The package allows us to calculate delta estimators to quantify the similarity between two curves.
+`overlap` provides functions to fit kernel density functions to data on temporal activity patterns of animals and estimate coefficients of overlapping of densities for two species. This package is useful for circular statistics, when treating data as circular. The package allows us to calculate delta estimators to quantify the similarity between two curves.
   
-The lubridate package provides functions to work with date-times and time-spans. It is applied for data standardization and time arithmetic allowing to extract time and isolate specific time of day from the date. It allow us to calculate circular math readiness converting time into decimal hours, the first necessary step before converting the data into radians. 
+`lubridate` provides functions to work with date-times and time-spans. It is applied for data standardization and time arithmetic allowing to extract time and isolate specific time of day from the date. It allow us to calculate circular math readiness converting time into decimal hours, the first necessary step before converting the data into radians. 
  
 </div>
 
@@ -62,7 +62,7 @@ mydata <- read.csv("UrbanDataset_Read-Only.csv", sep = ";")
 
 ## Time conversion
 
-In order to convert time in radians, we first need to transform it into a fraction of the day (from 0 to 1) and eventually remove the lines where the hour values are missing. 
+In order to convert time in radians, I firstly transformmed it into a fraction of the day (from 0 to 1) and eventually remove the lines where the hour values are missing. 
 ```r
 mydata$circtime <- as.numeric(hms(mydata$Hour)) / 86400 * 2 * pi
 mydata <- mydata[!is.na(mydata$circtime), ] 
@@ -78,7 +78,7 @@ mydata$Impact <- ifelse(mydata$Site %in% high_human_sites, "High", "Low")
 ```
 
 ## Species filters 
-From the main dataset we extract by filtering the species we are interested in, the red fox ($n = 502$) and the roe deer ($n = 151$). 
+From the main dataset I extract by filtering the species I am interested in, the red fox ($n = 502$) and the roe deer ($n = 151$). 
 ```r
 fox <- mydata[mydata$Sps == "RedFox", ]
 roedeer <- mydata[mydata$Sps == "RoeDeer", ]
@@ -113,9 +113,9 @@ In order to obtain a numeric estimate of the overlap:
 overlap_fox_index <- overlapEst(fox_high_time, fox_low_time, type="Dhat4")
 overlap_roedeer_index <- overlapEst(roedeer_high_time, roedeer_low_time, type="Dhat4")
 ```
-In this case, the estimator "Dhat4" was applied since the number of observations are >50. 
+In this case, the estimator `Dhat4` was applied since the number of observations are >50. 
 
-Finally, the comparision between red fox and human and roe deer and human was obtained by overlapping the graphs 
+Finally, the comparision between red fox and human activity and roe deer and human activity was obtained by overlapping the graphs 
 ```r
 overlapPlot(fox_high_time, fox_low_time, 
             main="Comparison Red Fox Activity: High vs Low Human Impact",
@@ -131,15 +131,36 @@ overlapPlot(roedeer_high_time, roedeer_low_time,
             olapcol="lightgrey",
             xscale=24)
 ```
+
+<div align="justify">
+  
 # Results 
 ## $\Delta$ values 
+
+The degree of temporal overlap goes from 0 when there is no overlap, to 1 when the overlap is total and the activity profiles are the same. 
+
+For the Red Fox, I obtained a high value (Δ = 0.85), indicating limited temporal shift and stability. Despite human presence, foxes in high impact sites keeps having similar activities to foxes living in wildness. 
+
+In contrast, Roe Deer showed a modest overlap (Δ = 0.51), suggesting greater behavioral adjustment in response to human presence and so a significant temporal shift. The value is due to the low overlap of the curves portions. Roe deer may be so used to human presence to not modify their urban pattern from the wild one.
+
+![Overlap graphs](graphcut.png)
+
+
 ## Objective description of patterns 
 
+The density plots reveal distinct behavioral responses to human presence. 
+
+- Red Fox: the activity curves for both high and low impact sites are largely synchronized, showing a strictly nocturnal and crepuscolar pattern. The peak of activity occurs between 21:00 and 05:00, effectively avoiding the peak of human activity. 
+- Roe Deer: its activity patterns show a high degree of similarity between high and low human impact sites. This lack of a significant temporal shift suggests that the population in the study areas has reached a level of habituation to anthropogenic presence. 
+
 # Discussion
-## Biological interpretation
-## Comparison between species 
-## Behavioral plasticity
-## Ecological Implications
+
+## Biological Interpretation and Species Comparison 
+
+The high degree of temporal overlap suggests that both species exhibit significant resilience to human presence in the study area. The results suggest that the natural nocturnal rythm of the red fox, shields it from diurnal human activity, requiring no behavioral shift between high and low impact sites, making it a successful urban adapter.
+For the Roe Deer, the absence of a marked difference between the two sites suggests a process of habituation. The current levels of human disturbance are not interpreted as a direct lethal threat, allowing the species to maintain their natural rhythm, including diurnal peaks and to satisfy its ecological requirements throughout the day, even in high pressure areas. The slightly lower overlap for this species indicates that the timing of activity is similar, but the intensity of use varies. 
+
+</div>
 
 ### Supplementary Materials
 For a detailed view of the individual activity patterns, you can access the full-size PDF plots here:
@@ -149,6 +170,9 @@ For a detailed view of the individual activity patterns, you can access the full
 * [Roe Deer Activity - High Impact](roedeeractivity_high.pdf)
 * [Roe Deer Activity - Low Impact](roedeeractivity_low.pdf)
 
+To check for the plot regarding human activity, you can access the full-size PDF plots here:
+
+* [Human Activity](humanacitvityvalidation.pdf)
 
 
 
