@@ -88,7 +88,7 @@ overlap_roedeer_index
 # layout() allows for more complex arrangements 
 # with matrix() we tell R to place the Fox in position 1, the Roe Deer in position 2 and the legend in position 3 across the entire bottom row
 # heights is for the aesthetics, allocating 80% of the vertical space to the plots and 20% to the legend
-layout(matrix(c(1,2,3,3), nrow=2, byrow=TRUE), heights=c(4, 1))
+layout(matrix(c(1,2,3,3), nrow=2, byrow=TRUE), heights=c(4, 0.6))
 # par() is used to plot pargins
 par(mar=c(4, 4, 3, 1))
 # mar = c(bottom, left, top, right)
