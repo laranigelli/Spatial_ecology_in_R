@@ -11,7 +11,7 @@ February 2026
 <div align="justify">
 
 # Introduction
-The rapid expansion of urban and peri-urban areas has forced wildlife to adapt to fragmented landscapes and high levels of anthropogenic pressure. Temporal activity is a fundamental dimension of an animal's niche, governing foraging, mating, and survival. Understanding when animals are active helps us identifying how they share space and resources without direct conflict. Significant shifts in natural rhythms can lead to increased stress, reduced repoductive success, or altered predator-prey dynamics. 
+The rapid expansion of urban and peri-urban areas has forced wildlife to adapt to fragmented landscapes and high levels of anthropogenic pressure. Temporal activity is a fundamental dimension of an animal's niche, governing foraging, mating, and survival. Understanding when animals are active helps us identifying how they share space and resources without direct conflict. Significant shifts in natural rhythms can lead to increased stress, reduced reproductive success, or altered predator-prey dynamics. 
 Human presence often acts as a disturbance, pushing wildlife towards noctural behaviors to avoid contact. Not all species respond equally; some are adapters (thriving in human presence) while others are avoiders (highly sensitive to disturbance). 
 
 ## Study objective
@@ -78,12 +78,12 @@ mydata$Impact <- ifelse(mydata$Site %in% high_human_sites, "High", "Low")
 ```
 
 ## Species filters 
-From the main dataset we extract by filtering the species we are interested in, the red fox and the roe deer. 
+From the main dataset we extract by filtering the species we are interested in, the red fox ($n = 502$) and the roe deer ($n = 151$). 
 ```r
 fox <- mydata[mydata$Sps == "RedFox", ]
 roedeer <- mydata[mydata$Sps == "RoeDeer", ]
 ```
-The foxes and roe deers are divided into two groups, according if the observation was made in a High Site or a Low Site. 
+Foxes and roe deer are divided into two groups, according if the observation was made in a High Site or a Low Site. 
 ```r
 fox_high <- fox[fox$Impact == "High", ]
 fox_low <- fox[fox$Impact == "Low", ]
