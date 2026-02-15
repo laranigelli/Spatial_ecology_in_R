@@ -132,4 +132,27 @@ legend("center",
 # xpd=TRUE to put the legend outside the margins, it allows R to draw the legend even if technically falls slightly outside the defined plot region
 
 
+# to check for high human disturbance you can: 
+# 1. Prepariamo i dati in ore (0-24)
+h_high_hours <- human_high * (24 / (2 * pi))
+h_low_hours  <- human_low * (24 / (2 * pi))
+
+# 2. Creiamo il grafico base con il gruppo High
+# Usiamo xlim per bloccare l'asse tra 0 e 24
+# 1. Plot della densità SENZA l'asse X (xaxt = "n")
+plot(density(h_high_hours, from = 0, to = 24), 
+     main = "Human Activity Validation", 
+     xlab = "Time of the day", ylab = "Density",
+     col = "black", lwd = 2, 
+     xlim = c(0, 24), 
+     xaxt = "n") # Questo rimuove i numeri 0, 5, 10...
+
+# 2. Aggiungiamo la linea per il gruppo Low (opzionale, se vuoi entrambi)
+lines(density(h_low_hours, from = 0, to = 24), 
+      col = "grey60", lwd = 2, lty = 2)
+
+# 3. Creiamo l'asse personalizzato con le ore
+# at = i punti dove vuoi i segni, labels = cosa vuoi che ci sia scritto
+axis(1, at = c(0, 6, 12, 18, 24), 
+     labels = c("0:00", "6:00", "12:00", "18:00", "24:00"))
 
