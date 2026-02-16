@@ -168,7 +168,7 @@ For a detailed view of the individual activity patterns, you can access the full
 * [Roe Deer Activity - High Impact](roedeeractivity_high.pdf)
 * [Roe Deer Activity - Low Impact](roedeeractivity_low.pdf)
 
-To check for the plot regarding human activity, you can access the full-size PDF plots here:
+To check for the plot regarding human activity, you can access the full-size PDF plot here:
 
 * [Human Activity](humanactivityvalidation.pdf)
 
