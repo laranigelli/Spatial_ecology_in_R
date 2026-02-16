@@ -15,8 +15,8 @@ The rapid expansion of urban and peri-urban areas has forced wildlife to adapt t
 Human presence often acts as a disturbance, pushing wildlife towards nocturnal behaviors to avoid contact. Not all species respond equally to human disturbance; some are urban adapters, capable of persisting in modified landscapes, whereas others respond by temporally avoiding periods of high human activity.
 
 ## Study objective
-- to quantify overlap measuring the degree of temporal synchronization between wildlife and human activity.
-- to evaluate through a comparative analysis the response of the selected species.
+- to quantify temporal overlap between high and low human impact sites.
+- to evaluate whether species modify their activity patterns under different levels of disturbance.
 
 </div>
 
@@ -49,7 +49,7 @@ library(lubridate)
   
 `overlap` provides functions to fit kernel density functions to data on temporal activity patterns of animals and estimate coefficients of overlapping of densities for two species. This package is useful for circular statistics, when treating data as circular. The package allows us to calculate delta estimators to quantify the similarity between two curves.
   
-`lubridate` provides functions to work with date-times and time-spans. It is applied for data standardization and time arithmetic allowing to extract time and isolate specific time of day from the date. It allow us to calculate circular math readiness converting time into decimal hours, the first necessary step before converting the data into radians. 
+`lubridate` provides functions to work with date-times and time-spans. It is applied for data standardization and time arithmetic allowing to extract time and isolate specific time of day from the date. It allows us to calculate circular math readiness converting time into decimal hours, the first necessary step before converting the data into radians. 
  
 </div>
 
@@ -62,7 +62,7 @@ mydata <- read.csv("UrbanDataset_Read-Only.csv", sep = ";")
 
 ## Time conversion
 
-In order to convert time in radians, I firstly transformmed it into a fraction of the day (from 0 to 1) and eventually remove the lines where the hour values are missing. 
+In order to convert time in radians, I firstly transformed it into a fraction of the day (from 0 to 1) and eventually remove the lines where the hour values are missing. 
 ```r
 mydata$circtime <- as.numeric(hms(mydata$Hour)) / 86400 * 2 * pi
 mydata <- mydata[!is.na(mydata$circtime), ] 
@@ -113,9 +113,9 @@ In order to obtain a numeric estimate of the overlap:
 overlap_fox_index <- overlapEst(fox_high_time, fox_low_time, type="Dhat4")
 overlap_roedeer_index <- overlapEst(roedeer_high_time, roedeer_low_time, type="Dhat4")
 ```
-In this case, the estimator `Dhat4` was applied since the number of observations are >50. 
+The coefficient of overlap (Δ) measures the area of intersection between two kernel density curves, providing an estimate of temporal similarity between activity patterns. The estimator `Dhat4` was chosen as recommended for sample sizes larger than 50 observations.
 
-Finally, the comparision between red fox and human activity and roe deer and human activity was obtained by overlapping the graphs 
+Finally, the comparison between red fox and human activity and roe deer and human activity was obtained by overlapping the graphs 
 ```r
 overlapPlot(fox_high_time, fox_low_time, 
             main="Comparison Red Fox Activity: High vs Low Human Impact",
@@ -133,32 +133,30 @@ overlapPlot(roedeer_high_time, roedeer_low_time,
 ```
 
 <div align="justify">
-  
+
 # Results 
-## $\Delta$ values 
 
-The degree of temporal overlap goes from 0 when there is no overlap, to 1 when the overlap is total and the activity profiles are the same. 
+## Overlap Coefficients (Δ) and patterns description
 
-For the Red Fox, I obtained a high value (Δ = 0.85), indicating limited temporal shift and stability. Despite human presence, foxes in high impact sites keeps having similar activities to foxes living in wildness. 
+The coefficient of temporal overlap ranges from 0 (no overlap) to 1 (complete overlap, identical activity patterns).
 
-In contrast, Roe Deer showed a modest overlap (Δ = 0.51), suggesting greater behavioral adjustment in response to human presence and so a significant temporal shift. The value is due to the low overlap of the curves portions. Roe deer may be so used to human presence to not modify their urban pattern from the wild one.
+Red Fox showed a high overlap between high and low human impact sites (Δ = 0.85). The density curves are largely synchronized, displaying a predominantly nocturnal and crepuscular pattern with peak activity between 21:00 and 05:00. This indicates minimal temporal adjustment across disturbance levels.
+
+Roe Deer exhibited a moderate overlap (Δ = 0.51), suggesting partial temporal differentiation between high and low impact sites. Although the general crepuscular pattern is maintained, differences in the shape and intensity of the curves indicate a moderate behavioral adjustment under increased human disturbance.
 
 ![Overlap graphs](graphcut.png)
 
-
-## Objective description of patterns 
-
-The density plots reveal distinct behavioral responses to human presence. 
-
-- Red Fox: the activity curves for both high and low impact sites are largely synchronized, showing a strictly nocturnal and crepuscolar pattern. The peak of activity occurs between 21:00 and 05:00, effectively avoiding the peak of human activity. 
-- Roe Deer: its activity patterns show a high degree of similarity between high and low human impact sites. This lack of a significant temporal shift suggests that the population in the study areas has reached a level of habituation to anthropogenic presence. 
-
 # Discussion
 
-## Biological Interpretation and Species Comparison 
+## Biological Interpretation and Species Comparison
 
-The high degree of temporal overlap suggests that both species exhibit significant resilience to human presence in the study area. The results suggest that the natural nocturnal rythm of the red fox, shields it from diurnal human activity, requiring no behavioral shift between high and low impact sites, making it a successful urban adapter.
-For the Roe Deer, the absence of a marked difference between the two sites suggests a process of habituation. The current levels of human disturbance are not interpreted as a direct lethal threat, allowing the species to maintain their natural rhythm, including diurnal peaks and to satisfy its ecological requirements throughout the day, even in high pressure areas. The slightly lower overlap for this species indicates that the timing of activity is similar, but the intensity of use varies. 
+The results highlight species-specific responses to human disturbance in the study area.
+
+The high overlap observed for the Red Fox (Δ = 0.85) suggests strong temporal stability across disturbance levels. As a predominantly nocturnal and crepuscular species, the Red Fox may already avoid periods of intense human activity, reducing the need for additional behavioral shifts in high-impact sites. This intrinsic temporal segregation likely contributes to its success as an urban adapter.
+
+In contrast, Roe Deer displayed a moderate overlap (Δ = 0.51), indicating a greater degree of temporal adjustment in response to human disturbance. While the general activity pattern remains crepuscular, variations in activity distribution suggest behavioral plasticity. Compared to the Red Fox, Roe Deer appear more sensitive to changes in disturbance intensity, potentially reflecting differences in ecological strategy, risk perception, or habitat use.
+
+Overall, these findings suggest that temporal responses to anthropogenic pressure are species-specific and may depend on pre-existing activity rhythms and ecological flexibility.
 
 </div>
 
@@ -172,7 +170,7 @@ For a detailed view of the individual activity patterns, you can access the full
 
 To check for the plot regarding human activity, you can access the full-size PDF plots here:
 
-* [Human Activity](humanacitvityvalidation.pdf)
+* [Human Activity](humanactivityvalidation.pdf)
 
 
 
