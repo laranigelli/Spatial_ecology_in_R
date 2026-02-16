@@ -62,7 +62,7 @@ mydata <- read.csv("UrbanDataset_Read-Only.csv", sep = ";")
 
 ## Time conversion
 
-In order to convert time in radians, I firstly transformed it into a fraction of the day (from 0 to 1) and eventually remove the lines where the hour values are missing. 
+In order to convert time in radians, I firstly transformed it into a fraction of the day (from 0 to 1) and eventually removed the lines where the hour values are missing. 
 ```r
 mydata$circtime <- as.numeric(hms(mydata$Hour)) / 86400 * 2 * pi
 mydata <- mydata[!is.na(mydata$circtime), ] 
