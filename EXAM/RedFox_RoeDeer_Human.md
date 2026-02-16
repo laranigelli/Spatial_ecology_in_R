@@ -115,7 +115,7 @@ overlap_roedeer_index <- overlapEst(roedeer_high_time, roedeer_low_time, type = 
 ```
 The coefficient of overlap (Δ) measures the area of intersection between two kernel density curves, providing an estimate of temporal similarity between activity patterns. The estimator `Dhat4` was chosen as recommended for sample sizes larger than 50 observations.
 
-Finally, the comparison between red fox and human activity and roe deer and human activity was obtained by overlapping the graphs 
+Finally, activity patterns between high and low impact sites were visually compared using overlap plots.
 ```r
 overlapPlot(fox_high_time, fox_low_time, 
             main = "Comparison Red Fox Activity: High vs Low Human Impact",
