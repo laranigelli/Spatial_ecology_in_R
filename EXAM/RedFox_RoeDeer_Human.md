@@ -103,33 +103,33 @@ roedeer_low_time <- roedeer_low$circtime
 ## Kernel Density
 It is based on a non-parametric Density Estimation and it is used to create a smooth curve, providing a more realistic biological model. The density plots for high and low impact sites are produced both for the red fox and for the roe deer. 
 ```r
-densityPlot(fox_high_time, main="Red Fox activity - High Human Presence")
-densityPlot(roedeer_high_time, main="Roe Deer activity - High Human Presence")
-densityPlot(fox_low_time, main="Red Fox Activity - Low Human Presence")
-densityPlot(roedeer_low_time, main="Roe Deer Activity - Low Human Presence")
+densityPlot(fox_high_time, main = "Red Fox activity - High Human Presence")
+densityPlot(roedeer_high_time, main = "Roe Deer activity - High Human Presence")
+densityPlot(fox_low_time, main = "Red Fox Activity - Low Human Presence")
+densityPlot(roedeer_low_time, main = "Roe Deer Activity - Low Human Presence")
 ```
 In order to obtain a numeric estimate of the overlap:
 ```r
-overlap_fox_index <- overlapEst(fox_high_time, fox_low_time, type="Dhat4")
-overlap_roedeer_index <- overlapEst(roedeer_high_time, roedeer_low_time, type="Dhat4")
+overlap_fox_index <- overlapEst(fox_high_time, fox_low_time, type = "Dhat4")
+overlap_roedeer_index <- overlapEst(roedeer_high_time, roedeer_low_time, type = "Dhat4")
 ```
 The coefficient of overlap (Δ) measures the area of intersection between two kernel density curves, providing an estimate of temporal similarity between activity patterns. The estimator `Dhat4` was chosen as recommended for sample sizes larger than 50 observations.
 
 Finally, the comparison between red fox and human activity and roe deer and human activity was obtained by overlapping the graphs 
 ```r
 overlapPlot(fox_high_time, fox_low_time, 
-            main="Comparison Red Fox Activity: High vs Low Human Impact",
-            xlab="Time of the day (Hours)",
-            linecol=c("red", "blue"),
-            olapcol="lightgrey", 
-            xscale=24) 
+            main = "Comparison Red Fox Activity: High vs Low Human Impact",
+            xlab = "Time of the day (Hours)",
+            linecol = c("red", "blue"),
+            olapcol = "lightgrey", 
+            xscale = 24) 
 
 overlapPlot(roedeer_high_time, roedeer_low_time, 
-            main="Comparison Roe Deer Activity: High vs Low Human Impact",
-            xlab="Time of the day (Hours)",
-            linecol=c("red", "blue"),
-            olapcol="lightgrey",
-            xscale=24)
+            main = "Comparison Roe Deer Activity: High vs Low Human Impact",
+            xlab = "Time of the day (Hours)",
+            linecol = c("red", "blue"),
+            olapcol = "lightgrey",
+            xscale = 24)
 ```
 
 <div align="justify">
