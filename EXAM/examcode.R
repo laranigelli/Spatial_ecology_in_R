@@ -8,9 +8,13 @@
 # set your working directory here
 # setwd()
 
-# open the packages
+# install the packages
+# install.packages("overlap")
+# install.packages("lubridate") 
+
+#open packages
 library(overlap)
-library(lubridate)
+library(luridate)
 
 # upload and visualize the dataset
 mydata <- read.csv("UrbanDataset_Read-Only.csv",sep=";")
