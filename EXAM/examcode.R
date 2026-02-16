@@ -93,7 +93,16 @@ legend("center",
        cex = 1, 
        xpd = TRUE)
 
-# to check for high human disturbance you can: 
+dev.off()
+
+# to check for high human disturbance
+human_high <- mydata$circtime[mydata$Sps == "Human" & mydata$Impact == "High"]
+human_low <- mydata$circtime[mydata$Sps == "Human" & mydata$Impact == "Low"]
+
+densityPlot(human_high, main = "Human Activity: High vs Low Impact Sites", 
+            col = "black", lty = 1)
+lines(density(human_low, adjust=1.5), col="grey", lty=2)
+
 # prepare data into hours (0-24)
 h_high_hours <- human_high * (24 / (2 * pi))
 h_low_hours  <- human_low * (24 / (2 * pi))
