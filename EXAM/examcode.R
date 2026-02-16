@@ -130,3 +130,12 @@ lines(density(h_low_hours, from = 0, to = 24),
 # create personalized axis with the hours
 axis(1, at = c(0, 6, 12, 18, 24), 
      labels = c("0:00", "6:00", "12:00", "18:00", "24:00"))
+
+# create the legend 
+legend("topleft",
+       legend = c("High Human Presence", "Low Human Presence"),
+       col = c("black", "grey60"),
+       lwd = 2,
+       lty = c(1, 2),
+       bty = "n")
+
