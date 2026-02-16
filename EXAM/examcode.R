@@ -1,7 +1,12 @@
-# change the directory
-setwd("C:/Users/A315-59-530X/Desktop/uni/GCE/secondo anno/SPATIAL ECOLOGY IN R/EXAM")
-# check directory 
-getwd()
+# -------------------------------------------------
+# Temporal Activity Patterns under Human Disturbance
+# Author: Lara Nigelli
+# Course: Spatial Ecology in R
+# Year: 2026
+# -------------------------------------------------
+
+# set your working directory here
+# setwd()
 
 # open the packages
 library(overlap)
@@ -25,7 +30,7 @@ high_human_sites <- names(human_counts[human_counts > 25])
 # Impact is the new column added to the dataset to distinguish the low and high impact 
 mydata$Impact <- ifelse(mydata$Site %in% high_human_sites, "High", "Low")
 
-# filtering od red fox and roe deer
+# filtering of red fox and roe deer
 fox <- mydata[mydata$Sps == "RedFox", ]
 roedeer <- mydata[mydata$Sps == "RoeDeer", ]
 
@@ -62,7 +67,7 @@ overlap_roedeer_index
 layout(matrix(c(1,2,3,3), nrow = 2, byrow = TRUE), heights = c(4, 0.6))
 par(mar = c(4, 4, 3, 1))
 
-# overlap plot to compare fox and human 
+# overlap plot to compare high vs. low impact sites for fox 
 overlapPlot(fox_high_time, fox_low_time, 
             main = "Comparison Red Fox Activity: High vs Low Human Impact",
             xlab = "Time of the day (Hours)",
@@ -70,7 +75,7 @@ overlapPlot(fox_high_time, fox_low_time,
             olapcol = "lightgrey", # to underline the overlap area
             xscale = 24) # to convert radiants into hours 
 
-
+# overlap plot to compare high vs. low impact sites for roe deer 
 overlapPlot(roedeer_high_time, roedeer_low_time, 
             main = "Comparison Roe Deer Activity: High vs Low Human Impact",
             xlab = "Time of the day (Hours)",
