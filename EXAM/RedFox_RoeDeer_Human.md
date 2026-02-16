@@ -83,7 +83,7 @@ From the main dataset I extract by filtering the species I am interested in, the
 fox <- mydata[mydata$Sps == "RedFox", ]
 roedeer <- mydata[mydata$Sps == "RoeDeer", ]
 ```
-Foxes and roe deer are divided into two groups, according if the observation was made in a High Site or a Low Site. 
+Fox and roe deer are divided into two groups, according if the observation was made in a High Site or a Low Site. 
 ```r
 fox_high <- fox[fox$Impact == "High", ]
 fox_low <- fox[fox$Impact == "Low", ]
