@@ -49,7 +49,7 @@ library(lubridate)
   
 `overlap` provides functions to fit kernel density functions to data on temporal activity patterns of animals and estimate coefficients of overlapping of densities for two species. This package is useful for circular statistics, when treating data as circular. The package allows us to calculate delta estimators to quantify the similarity between two curves.
   
-`lubridate` provides functions to work with date-times and time-spans. It is applied for data standardization and time arithmetic allowing to extract time and isolate specific time of day from the date. It allows us to calculate circular math readiness converting time into decimal hours, the first necessary step before converting the data into radians. 
+`lubridate` provides functions to work with date-times and time-spans. It is applied for data standardization and time arithmetic allowing to extract time and isolate specific time of day from the date. It allows conversion of time into decimal hours, which is required before transforming data into radians.
  
 </div>
 
@@ -70,7 +70,7 @@ mydata <- mydata[!is.na(mydata$circtime), ]
 
 ## Definition of High and Low Human Impact
 
-For every site in the dataset, the records for "human" are counted: those with more than 25 human observations are classified in a new created list of the "High Sites"
+For each site, the number of human detections was calculated. Sites with more than 25 human observations were classified as High impact sites.
 ```r
 human_counts <- table(mydata$Site[mydata$Sps == "Human"])
 high_human_sites <- names(human_counts[human_counts > 25])
@@ -140,7 +140,7 @@ overlapPlot(roedeer_high_time, roedeer_low_time,
 
 The coefficient of temporal overlap ranges from 0 (no overlap) to 1 (complete overlap, identical activity patterns).
 
-Red Fox showed a high overlap between high and low human impact sites (Δ = 0.85). The density curves are largely synchronized, displaying a predominantly nocturnal and crepuscular pattern with peak activity between 21:00 and 05:00. This indicates minimal temporal adjustment across disturbance levels.
+The Red Fox showed a high overlap between high and low human impact sites (Δ = 0.85). The density curves are largely synchronized, displaying a predominantly nocturnal and crepuscular pattern with peak activity between 21:00 and 05:00. This indicates minimal temporal adjustment across disturbance levels.
 
 Roe Deer exhibited a moderate overlap (Δ = 0.51), suggesting partial temporal differentiation between high and low impact sites. Although the general crepuscular pattern is maintained, differences in the shape and intensity of the curves indicate a moderate behavioral adjustment under increased human disturbance.
 
