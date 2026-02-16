@@ -75,16 +75,16 @@ par(mar = c(4, 4, 3, 1))
 overlapPlot(fox_high_time, fox_low_time, 
             main = "Comparison Red Fox Activity: High vs Low Human Impact",
             xlab = "Time of the day (Hours)",
-            linecol = c("red", "blue"), # red=High, Blue=Low
+            linecol = c("red", "blue"), # red=High, blue=Low
             olapcol = "lightgrey", # to underline the overlap area
-            xscale = 24) # to convert radiants into hours 
+            xscale = 24) # to convert radians into hours 
 
 # overlap plot to compare high vs. low impact sites for roe deer 
 overlapPlot(roedeer_high_time, roedeer_low_time, 
             main = "Comparison Roe Deer Activity: High vs Low Human Impact",
             xlab = "Time of the day (Hours)",
-            linecol = c("red", "blue"), # red=High, Blue=Low
-            olapcol = "lightgrey", # to underline di overlap area
+            linecol = c("red", "blue"), 
+            olapcol = "lightgrey", 
             xscale = 24)
 
 # we add an external legend 
