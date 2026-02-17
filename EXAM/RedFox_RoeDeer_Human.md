@@ -101,7 +101,7 @@ roedeer_low_time <- roedeer_low$circtime
 
 # Statistical Analysis
 ## Kernel Density
-It is based on a non-parametric Density Estimation and it is used to create a smooth curve, providing a more realistic biological model. The density plots for high and low impact sites are produced both for the red fox and for the roe deer. 
+It is based on a non-parametric method used to estimate the probability density function of a random variable, creating a smooth, continuous probability curve from data points, providing a more realistic biological model. The density plots for high and low impact sites are produced both for the red fox and for the roe deer. 
 ```r
 densityPlot(fox_high_time, main = "Red Fox activity - High Human Presence")
 densityPlot(roedeer_high_time, main = "Roe Deer activity - High Human Presence")
