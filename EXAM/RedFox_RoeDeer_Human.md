@@ -38,8 +38,6 @@ The packages needed are the following:
 library(overlap)
 library(lubridate)
 ```
-
-<div align="justify">
   
 `overlap` provides functions to fit kernel density functions to data on temporal activity patterns of animals and estimate coefficients of overlapping of densities for two species. This package is useful for circular statistics, when treating data as circular. The package allows us to calculate delta estimators to quantify the similarity between two curves.
   
@@ -126,8 +124,6 @@ overlapPlot(roedeer_high_time, roedeer_low_time,
             xscale = 24)
 ```
 
-<div align="justify">
-
 # Results 
 
 ## Overlap Coefficients (Δ) and patterns description
@@ -151,8 +147,6 @@ The high overlap observed for the Red Fox (Δ = 0.85) suggests strong temporal s
 In contrast, Roe Deer displayed a moderate overlap (Δ = 0.51), indicating a greater degree of temporal adjustment in response to human disturbance. While the general activity pattern remains crepuscular, variations in activity distribution suggest behavioral plasticity. Compared to the Red Fox, Roe Deer appear more sensitive to changes in disturbance intensity, potentially reflecting differences in ecological strategy, risk perception, or habitat use.
 
 Overall, these findings suggest that temporal responses to anthropogenic pressure are species-specific and may depend on pre-existing activity rhythms and ecological flexibility.
-
-</div>
 
 ### Supplementary Materials
 For a detailed view of the individual activity patterns, you can access the full-size PDF plots here:
