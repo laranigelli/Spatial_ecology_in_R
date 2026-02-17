@@ -11,7 +11,7 @@ February 2026
 <div align="justify">
 
 # Introduction
-The rapid expansion of urban and peri-urban areas has forced wildlife to adapt to fragmented landscapes and high levels of anthropogenic pressure. Temporal activity is a fundamental dimension of an animal's niche, governing foraging, mating, and survival. Understanding when animals are active helps us identify how they share space and resources without direct conflict. Significant shifts in natural rhythms can lead to increased stress, reduced reproductive success, or altered predator-prey dynamics. 
+The rapid expansion of urban and peri-urban areas has forced wildlife to adapt to fragmented landscapes and high levels of anthropogenic pressure. Temporal activity is a fundamental dimension of an animal's niche, governing foraging, mating, and survival. Significant shifts in natural rhythms can lead to increased stress, reduced reproductive success, or altered predator-prey dynamics. 
 Human presence often acts as a disturbance, pushing wildlife towards nocturnal behaviors to avoid contact. Not all species respond equally to human disturbance; some are urban adapters, capable of persisting in modified landscapes, whereas others respond by temporally avoiding periods of high human activity.
 
 ## Study objective
