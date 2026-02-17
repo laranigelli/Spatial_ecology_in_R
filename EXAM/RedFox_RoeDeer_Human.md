@@ -42,8 +42,6 @@ library(lubridate)
 `overlap` provides functions to fit kernel density functions to data on temporal activity patterns of animals and estimate coefficients of overlapping of densities for two species. This package is useful for circular statistics, when treating data as circular. The package allows us to calculate delta estimators to quantify the similarity between two curves.
   
 `lubridate` provides functions to work with date-times and time-spans. It is applied for data standardization and time arithmetic allowing to extract time and isolate specific time of day from the date. It allows conversion of time into decimal hours, which is required before transforming data into radians.
- 
-</div>
 
 # Data processing 
 
