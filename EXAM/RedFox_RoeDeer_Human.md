@@ -17,10 +17,6 @@ Human presence often acts as a disturbance, pushing wildlife towards nocturnal b
 ## Study objective
 - to quantify temporal overlap between high and low human impact sites.
 - to evaluate whether species modify their activity patterns under different levels of disturbance.
-
-</div>
-
-<div align="justify">
   
 # Materials and Methods
 
@@ -33,8 +29,6 @@ Each record includes information on species identity, site location, and time of
 Human detections were used as a proxy for anthropogenic disturbance. Sites were classified as high-impact when the number of human detections exceeded 25 records, and low-impact otherwise.
 
 Two species were selected for analysis: Red Fox (_Vulpes vulpes_) and Roe Deer (_Capreolus capreolus_), representing species with different ecological and behavioral traits.
-
-</div>
 
 ## Packages used in R
 
@@ -171,6 +165,8 @@ For a detailed view of the individual activity patterns, you can access the full
 To check for the plot regarding human activity, you can access the full-size PDF plot here:
 
 * [Human Activity](humanactivityvalidation.pdf)
+
+</div>
 
 
 
